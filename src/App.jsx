@@ -1,11 +1,9 @@
-
-
 function App() {
   return (
     <div className="App">
-            <a href="">Learn Test</a>
+      <button style={{ backgroundColor: 'red' }}>Change to blue</button>
     </div>
-  );
+  )
 }
 
 export default App;
