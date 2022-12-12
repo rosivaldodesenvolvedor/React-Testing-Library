@@ -1,11 +1,14 @@
 import { render, screen } from '@testing-library/react';
+import {logRoles} from '@testing-library/dom'
 import App from './App';
 
 
 describe("Testando conteudo do curso seção 2", () => {
 
 test('button has correct initial color', () => {
-  render(<App />)
+ const {container} = render(<App />)
+
+ logRoles(container);
 
   //find an element with a role of button of 'change to blue'
  const colorButton = screen.getByRole("button", {name: 'Change to blue'});
