@@ -1,14 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import {logRoles} from '@testing-library/dom'
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
 
 describe("Testando conteudo do curso seção 2", () => {
 
 test('button has correct initial color', () => {
- const {container} = render(<App />)
+ render(<App />)
 
- logRoles(container);
 
   //find an element with a role of button of 'change to blue'
  const colorButton = screen.getByRole("button", {name: 'Change to blue'});
@@ -18,7 +16,19 @@ expect(colorButton).toHaveStyle({ backgroundColor: 'red'})
 
 
 test('button turns blue when clicked', () => {
-  
+
+    render(<App />)
+
+    const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+    expect(colorButton).toHaveStyle({ backgroundColor: 'red'})
+    fireEvent.click(colorButton)
+
+    expect(colorButton).toHaveStyle({ backgroundColor: 'blue'})
+
+    expect(colorButton).toHaveTextContent('Change to red')
+
+
+
 });
 
 })
