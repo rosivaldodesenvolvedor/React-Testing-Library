@@ -25,7 +25,7 @@ test('button turns blue when clicked', () => {
 
     expect(colorButton).toHaveStyle({ backgroundColor: 'blue'})
 
-    expect(colorButton).toHaveTextContent('Change to red')
+    expect(colorButton.textContent).toBe('Change to red')
 
 
 
