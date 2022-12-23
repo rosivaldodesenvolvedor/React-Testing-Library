@@ -34,4 +34,19 @@ describe("Testando conteudo do curso seção 2", () => {
     expect(checkBox).not.toBeChecked();
 
   });
+
+  test("checkbox disables button on first click and enables on second click", () => {
+    render(<App />);
+
+   const checkBox = screen.getByRole('checkbox', {name: 'Disable button'});
+   const button = screen.getByRole("button", {name: "Change to blue"});
+
+   fireEvent.click(checkBox);
+   expect(button).toBeDisabled();
+
+   fireEvent.click(checkBox);
+   expect(button).toBeEnabled();
+
+
+  });
 });
