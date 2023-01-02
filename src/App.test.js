@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
+import {replaceCameWithSpaces} from "./App"
 
 describe("Testando conteudo do curso seção 2", () => {
   test("button has correct initial color", () => {
@@ -62,6 +63,20 @@ describe("Testando conteudo do curso seção 2", () => {
    fireEvent.click(checkBox);
    expect(button).toHaveStyle('background-color: red');
 
-
   });
 });
+
+
+describe('spaces before camel-case capital lettters', ()=>{
+  test('Works for no capital letters', ()=>{
+expect(replaceCameWithSpaces('Red')).toBe('Red');
+  })
+
+  test('Works for no capital letter', ()=>{
+    expect(replaceCameWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+  })
+
+  test('Works for multiple inner capital letter', ()=>{
+    expect(replaceCameWithSpaces('MidnightVioletRed')).toBe('Midnight Violet Red');
+  })
+})

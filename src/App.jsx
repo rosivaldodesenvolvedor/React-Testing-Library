@@ -1,6 +1,10 @@
 import {useState} from 'react'
 
 
+export function replaceCameWithSpaces(colorName){
+  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+}
+
 
 function App() {
 
