@@ -1,10 +1,11 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import {render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 import {replaceCameWithSpaces} from "./App"
 
 describe("Testando conteudo do curso seção 2", () => {
   test("button has correct initial color", () => {
     render(<App />);
+    
 
     //find an element with a role of button of 'change to blue'
     const colorButton = screen.getByRole("button", { name: "Change to blue" });
